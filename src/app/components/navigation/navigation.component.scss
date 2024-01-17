@@ -1,0 +1,170 @@
+@use '../../../scss/mixins/media-breakpoints';
+@use '../../../scss/mixins/typography';
+
+.navigation{
+  --_width: 100dvw;
+  --_gap: 8px;
+  --_flex-direction: row;
+  --_justify-content: space-around;
+  --_align-items: center;
+
+  @include media-breakpoints.tablet{
+    --_width: 80px;
+    --_flex-direction: column;
+    --_align-items: center;
+    --_justify-content: flex-start;
+    --_gap: 12px;
+  }
+
+  @include media-breakpoints.desktop{
+    --_width: 360px;
+    --_gap: 0;
+  }
+
+  display: flex;
+  flex-direction: var(--_flex-direction);
+  justify-content: var(--_justify-content);
+  width: var(--_width);
+  gap: var(--_gap);
+  background-color: var(--md-sys-color-surface-container);
+
+  &__title {
+    @include typography.title-small;
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 18px 16px;
+  }
+
+  &__divider{
+    margin: 0;
+
+    @include media-breakpoints.desktop{
+      margin: 0 16px;
+    }
+
+  }
+
+  &__item {
+    --_icon-container-color: transparent;
+    --_icon-container-hover-color: transparent;
+    --_before-icon-opacity: 1;
+
+    &:hover {
+      --_icon-container-hover-color: var(--md-sys-color-on-surface);
+      --_before-icon-opacity: 0.08;
+    }
+
+    &[ng-reflect-activated=true] {
+      --_icon-container-color: var(--md-sys-color-secondary-container);
+
+      &:hover {
+        --_icon-container-hover-color: var(--md-sys-color-on-secondary-container);
+      }
+    }
+  }
+
+  &__link {
+    --_flex-direction: column;
+    --_gap: 4px;
+
+    min-width: 48px;
+    display: flex;
+    flex-direction: var(--_flex-direction);
+    align-items: center;
+    gap: var(--_gap);
+    cursor: pointer;
+
+    @include media-breakpoints.tablet {
+      height: 56px;
+    }
+
+    @include media-breakpoints.desktop {
+      --_flex-direction: row;
+      --_gap: 12px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 100px;
+    }
+  }
+
+  &__icon {
+    --_visibility-before: visible;
+    --_border-radius: 16px;
+    --_width-icon: 64px;
+    --_padding-inline: 0px;
+
+    width: var(--_width-icon);
+    height: 32px;
+    padding-inline: var(--_padding-inline);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    user-select: none;
+    isolation: isolate;
+    border-radius: var(--_border-radius);
+    overflow: hidden;
+    background-color: var(--_icon-container-color);
+
+    &::before {
+      content: "";
+      visibility: var(--_visibility-before);
+      background-color: var(--_icon-container-hover-color);
+      width: 100%;
+      height: auto;
+      position: absolute;
+      opacity: var(--_before-icon-opacity);
+      inset: 0;
+      z-index: -1;
+    }
+
+    @include media-breakpoints.tablet {
+      --_border-radius: 100px;
+      --_width-icon: 56px;
+      --_padding-inline: 16px;
+    }
+
+    @include media-breakpoints.desktop {
+      --_width-icon: 24px;
+      --_border-radius: 0;
+      --_padding-inline: 0;
+      --_icon-container-color: transparent;
+      --_visibility-before: hidden;
+    }
+  }
+
+  &__label {
+    @include typography.label-medium();
+
+    @include media-breakpoints.desktop {
+      @include typography.label-large();
+    }
+  }
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+[ng-reflect-activated=true] {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+  }
+
+  .navigation__label {
+    font-weight: 600;
+  }
+}
+
+.tablet-hidden {
+  --_display: none;
+
+  @include media-breakpoints.desktop {
+    --_display: block;
+  }
+
+  display: var(--_display);
+}

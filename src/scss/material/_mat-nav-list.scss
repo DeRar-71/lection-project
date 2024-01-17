@@ -1,0 +1,21 @@
+@use '../mixins/typography';
+@use '../mixins/media-breakpoints';
+@use '../theme';
+
+.mat-mdc-nav-list.mdc-list {
+  --mdc-nav-list-background-color: var(--md-sys-color-surface-container-low);
+  --mdc-nav-list-padding: 12px 0 16px 0;
+  --mdc-nav-list-height: 100%;
+
+  @include media-breakpoints.tablet {
+    --mdc-nav-list-padding: 16px 0;
+  }
+
+  @include media-breakpoints.desktop {
+    --mdc-nav-list-padding: 12px;
+  }
+
+  background-color: var(--mdc-nav-list-background-color);
+  height: var(--mdc-nav-list-height);
+  padding: var(--mdc-nav-list-padding);
+}

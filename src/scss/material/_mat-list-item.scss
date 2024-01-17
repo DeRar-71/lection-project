@@ -1,0 +1,45 @@
+@use '../mixins/media-breakpoints';
+@use '../theme';
+
+.mat-mdc-list-item.mdc-list-item {
+  --_active-item-container-color: transparent;
+  --_active-item-container-hover-color: transparent;
+  --mdc-list-list-item-container-shape: 0px;
+  --mdc-nav-list-item-padding: 0;
+  --mdc-list-list-item-one-line-container-height: 56px;
+  --mdc-list-list-item-hover-state-layer-color: transparent;
+  --mdc-list-list-item-hover-state-layer-opacity: 0.08;
+  --mdc-list-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
+  --mdc-list-list-item-hover-label-text-color: var(--md-sys-color-on-surface);
+  --mdc-list-list-item-hover-leading-icon-color: var(--md-sys-color-on-surface);
+
+  @include media-breakpoints.desktop {
+    --mdc-list-list-item-hover-state-layer-color: var(--md-sys-color-on-surface);
+    --_active-item-container-color: var(--md-sys-color-secondary-container);
+    --_active-item-container-hover-color: var(--md-sys-color-on-secondary-container);
+    --mdc-list-list-item-container-shape: 100px;
+    --mdc-nav-list-item-padding: 16px 24px 16px 16px;
+  }
+
+  padding: var(--mdc-nav-list-item-padding);
+
+  &--activated {
+
+    --mdc-list-list-item-hover-state-layer-color: var(--_active-item-container-hover-color);
+    --mdc-list-list-item-container-color: var(--_active-item-container-color);
+    --mdc-list-list-item-label-text-color: var(--md-sys-color-on-secondary-container);
+
+    &:hover {
+      --mdc-list-list-item-hover-label-text-color: var(--md-sys-color-on-secondary-container);
+    }
+
+  }
+}
+
+.mat-mdc-list-item.mdc-list-item > .mat-ripple-element {
+  visibility: hidden;
+}
+
+.mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text{
+  color: var(--mdc-list-list-item-label-text-color);
+}

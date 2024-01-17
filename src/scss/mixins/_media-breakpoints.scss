@@ -1,0 +1,19 @@
+@import '../variables';
+
+@mixin tablet-media {
+  @media only screen and (min-width: #{$tablet-breakpoint}) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet-breakpoint + 1}) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop-breakpoint + 1}) {
+    @content
+  }
+}

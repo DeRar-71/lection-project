@@ -1,0 +1,23 @@
+<mat-nav-list class="navigation">
+  <div class="tablet-hidden navigation__title">Menu</div>
+
+  @for (navItem of navigationItems; track navItem.id) {
+    <mat-list-item class="navigation__item">
+
+      <div class="navigation__link">
+        <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">{{ navItem.icon }}</div>
+        <div class="navigation__label">{{ navItem.label }}</div>
+      </div>
+
+    </mat-list-item>
+  }
+
+  <mat-divider class="tablet-hidden navigation__divider"></mat-divider>
+
+  <mat-list-item class="navigation__item" [activated]="true">
+    <div class="navigation__link">
+      <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">login</div>
+      <div class="navigation__label">Login</div>
+    </div>
+  </mat-list-item>
+</mat-nav-list>
