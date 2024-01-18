@@ -1,0 +1,14 @@
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('/assets/images/avatar-example.jpg');
+  background-size: cover;
+}

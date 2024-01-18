@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatListModule } from "@angular/material/list";
 import { INavigationItem } from "../../interfaces/INavigationItem"
 import { NavigationService } from "../../services/navigation/navigation.service";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
-import {MatRippleModule} from "@angular/material/core";
+import {MatRipple, MatRippleModule} from "@angular/material/core";
 
 @Component({
   selector: 'cm-navigation',
@@ -14,6 +14,9 @@ import {MatRippleModule} from "@angular/material/core";
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent implements OnInit{
+
+  @ViewChild(MatRipple) ripple?: MatRipple;
+
   public navigationItems: INavigationItem[] = [];
 
   constructor(private navigationService: NavigationService) {
@@ -37,5 +40,16 @@ export class NavigationComponent implements OnInit{
   showInfo(navItem: INavigationItem): void {
     // Handle the click event as needed
     console.log('Clicked on:', navItem);
+  }
+
+  public onItemClick(event: any) {
+    if (!this.ripple) return;
+
+    const rippleRef = this.ripple.launch({
+      persistent: true,
+      centered: true
+    });
+
+    rippleRef.fadeOut();
   }
 }
