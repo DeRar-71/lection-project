@@ -5,11 +5,12 @@ import { NavigationService } from "../../services/navigation/navigation.service"
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRipple, MatRippleModule} from "@angular/material/core";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'cm-navigation',
   standalone: true,
-  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule],
+  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule, RouterLink, RouterOutlet, RouterLinkActive],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
@@ -30,15 +31,10 @@ export class NavigationComponent implements OnInit{
     this.navigationService.getNavigationItems().subscribe(
       (items: INavigationItem[]) => {
         this.navigationItems = items;
-      },
-      (error) => {
-        console.error('Error loading navigation items:', error);
-      }
-    );
+      });
   }
 
   showInfo(navItem: INavigationItem): void {
-    // Handle the click event as needed
     console.log('Clicked on:', navItem);
   }
 
