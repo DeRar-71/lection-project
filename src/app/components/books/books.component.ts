@@ -5,6 +5,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {AuthorPipe} from "../../pipes/author/author.pipe";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'cm-books',
@@ -12,6 +13,8 @@ import {AuthorPipe} from "../../pipes/author/author.pipe";
   imports: [
     MatButtonModule,
     MatCardModule,
+    NgOptimizedImage,
+    RouterLink
     NgOptimizedImage,
     AuthorPipe
   ],

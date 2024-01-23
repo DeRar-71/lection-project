@@ -14,12 +14,14 @@ export class NavigationService {
       {
         id: '1',
         label: 'Home',
-        icon: 'home'
+        icon: 'home',
+        link: 'home'
       },
       {
         id: '2',
         label: 'Books',
-        icon: 'book'
+        icon: 'book',
+        link: 'books'
       }
     ];
 

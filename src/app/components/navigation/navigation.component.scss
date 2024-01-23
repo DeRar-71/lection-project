@@ -71,6 +71,8 @@
     flex-direction: var(--_flex-direction);
     align-items: center;
     gap: var(--_gap);
+    text-decoration: none;
+    color: inherit;
     cursor: pointer;
 
     @include media-breakpoints.tablet {
