@@ -3,6 +3,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'cm-login',
@@ -11,10 +13,12 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['../shared-styles.scss', './login.component.scss']
 })
 export class LoginComponent {
   public username: string = '';

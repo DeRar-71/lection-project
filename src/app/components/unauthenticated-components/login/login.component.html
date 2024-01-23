@@ -1,0 +1,23 @@
+<form class="auth-form">
+
+    <div class="auth-form__title">Login</div>
+
+    <div class="auth-form__inputs">
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email"  matInput/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput/>
+      </mat-form-field>
+
+    </div>
+    <div class="auth-form__actions">
+        <button mat-raised-button color="primary" class="auth-form__button">Login</button>
+        <span class="auth-form__support">If you don't have an account, <a routerLink="/register" class="auth-form__link">register</a></span>
+    </div>
+
+</form>

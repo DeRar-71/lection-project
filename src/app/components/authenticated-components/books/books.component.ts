@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {BookService} from "../../services/book/book.service";
-import {IBook} from "../../interfaces/IBook";
+import {BookService} from "../../../services/book/book.service";
+import {IBook} from "../../../interfaces/IBook";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
-import {AuthorPipe} from "../../pipes/author/author.pipe";
+import {AuthorPipe} from "../../../pipes/author/author.pipe";
 import {RouterLink} from "@angular/router";
 
 @Component({

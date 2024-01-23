@@ -1,0 +1,52 @@
+@use '../../../scss/mixins/typography';
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  height: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  width: 100%;
+  flex: 1 0 0;
+  background-color: var(--md-sys-color-surface-container-low);
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+  &__title {
+    @include typography.headline-medium;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 100%;
+    width: 100%;
+  }
+
+  &__actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__support {
+    @include typography.body-small;
+  }
+
+  &__link {
+    color: var(--md-sys-color-on-secondary-container);
+    text-decoration: none;
+    font-weight: 700;
+  }
+}

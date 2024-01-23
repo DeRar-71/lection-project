@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatListModule } from "@angular/material/list";
-import { INavigationItem } from "../../interfaces/INavigationItem"
-import { NavigationService } from "../../services/navigation/navigation.service";
+import { INavigationItem } from "../../../interfaces/INavigationItem"
+import { NavigationService } from "../../../services/navigation/navigation.service";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRipple, MatRippleModule} from "@angular/material/core";

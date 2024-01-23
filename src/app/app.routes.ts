@@ -1,20 +1,19 @@
 import { Routes } from '@angular/router';
-import {MainComponent} from "./components/main/main.component";
-import {BooksComponent} from "./components/books/books.component";
-import {AddBookComponent} from "./components/add-book/add-book.component";
-import {EditBookComponent} from "./components/edit-book/edit-book.component";
-import {LoginComponent} from "./components/login/login.component";
-import {RegisterComponent} from "./components/register/register.component";
+import {BooksComponent} from "./components/authenticated-components/books/books.component";
+import {AddBookComponent} from "./components/authenticated-components/add-book/add-book.component";
+import {EditBookComponent} from "./components/authenticated-components/edit-book/edit-book.component";
+import {LoginComponent} from "./components/unauthenticated-components/login/login.component";
+import {RegisterComponent} from "./components/unauthenticated-components/register/register.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 import {authGuard} from "./guards/auth/auth.guard";
-import {HomeComponent} from "./components/home/home.component";
-import {AuthPageComponent} from "./components/auth-page/auth-page.component";
+import {HomeComponent} from "./components/authenticated-components/home/home.component";
 import {
   AuthenticatedLayoutComponentComponent
-} from "./components/authenticated-layout-component/authenticated-layout-component.component";
+} from "./components/authenticated-components/authenticated-layout-component/authenticated-layout-component.component";
 import {
   UnauthenticatedLayoutComponentComponent
-} from "./components/unauthenticated-layout-component/unauthenticated-layout-component.component";
+} from "./components/unauthenticated-components/unauthenticated-layout-component/unauthenticated-layout-component.component";
+import {notAuthGuardGuard} from "./guards/notAuthGuard/not-auth-guard.guard";
 
 export const routes: Routes = [
   {
@@ -23,7 +22,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: '',
+        path: 'home',
         component: HomeComponent,
       },
       {
@@ -41,11 +40,12 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'login',
+    path: '',
     component: UnauthenticatedLayoutComponentComponent,
+    canActivate: [notAuthGuardGuard],
     children: [
       {
-        path: '',
+        path: 'login',
         component: LoginComponent
       },
       {

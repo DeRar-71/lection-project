@@ -1,0 +1,33 @@
+@use '../mixins/typography';
+
+.mdc-text-field.mdc-text-field {
+  padding: 0 16px;
+}
+
+.mat-mdc-text-field-wrapper {
+  --_state-layer-opacity: 0.08;
+
+  --mat-form-field-hover-state-layer-opacity: var(--_state-layer-opacity);
+  --mdc-filled-text-field-container-color: var(--md-sys-color-surface-container-highest);
+}
+
+.mat-mdc-form-field-focus-overlay {
+  --mat-form-field-state-layer-color: var(--md-sys-color-on-surface);
+}
+
+.mdc-floating-label.mat-mdc-floating-label {
+  @include typography.body-large;
+  --mdc-filled-text-field-label-text-color: var(--md-sys-color-on-surface-variant);
+  --mdc-filled-text-field-focus-label-text-color: var(--md-sys-color-primary);
+}
+
+.mdc-line-ripple {
+  --mdc-filled-text-field-hover-active-indicator-color: var(--md-sys-color-on-surface);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--md-sys-color-primary);
+}
+
+.mat-mdc-input-element.mat-mdc-form-field-input-control.mdc-text-field__input {
+  @include typography.body-large;
+  --mdc-filled-text-field-input-text-color: var(--md-sys-color-on-surface);
+  --mdc-filled-text-field-caret-color: var(--md-sys-color-primary);
+}
