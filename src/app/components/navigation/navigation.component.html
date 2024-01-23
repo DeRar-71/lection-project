@@ -2,7 +2,7 @@
   <div class="tablet-hidden navigation__title">Menu</div>
 
   @for (navItem of navigationItems; track navItem.id) {
-    <mat-list-item class="navigation__item" (click)="onItemClick($event)" routerLink="{{ navItem.link }}" routerLinkActive="active">
+    <mat-list-item class="navigation__item" (click)="onItemClick($event)" routerLink="{{ navItem.link }}" routerLinkActive="mdc-list-item--activated">
 
       <a class="navigation__link">
         <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">{{ navItem.icon }}</div>
@@ -14,7 +14,7 @@
 
   <mat-divider class="tablet-hidden navigation__divider"></mat-divider>
 
-  <mat-list-item class="navigation__item" routerLink="/login" routerLinkActive="active">
+  <mat-list-item class="navigation__item" routerLink="/login" routerLinkActive="mdc-list-item--activated">
     <a class="navigation__link">
       <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">login</div>
       <div class="navigation__label" (click)="onItemClick($event)">Login</div>

@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'cm-main',
+  selector: 'cm-auth-page',
   standalone: true,
   imports: [
     RouterOutlet
   ],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  templateUrl: './auth-page.component.html',
+  styleUrl: './auth-page.component.scss'
 })
-export class MainComponent {
+export class AuthPageComponent {
 
 }

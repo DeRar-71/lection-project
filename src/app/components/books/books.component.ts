@@ -14,7 +14,7 @@ import {RouterLink} from "@angular/router";
     MatButtonModule,
     MatCardModule,
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
     NgOptimizedImage,
     AuthorPipe
   ],

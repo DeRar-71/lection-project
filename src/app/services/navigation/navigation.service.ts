@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {INavigationItem} from "../../interfaces/INavigationItem";
+import {AuthService} from "../auth/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavigationService {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   getNavigationItems(): Observable<INavigationItem[]> {
     const navigationItems: INavigationItem[] = [
@@ -15,7 +16,7 @@ export class NavigationService {
         id: '1',
         label: 'Home',
         icon: 'home',
-        link: 'home'
+        link: '/home'
       },
       {
         id: '2',
@@ -25,6 +26,10 @@ export class NavigationService {
       }
     ];
 
-    return of(navigationItems);
+    if (this.authService.isLoggedIn) {
+      return of(navigationItems);
+    }
+
+    return of([]);
   }
 }
