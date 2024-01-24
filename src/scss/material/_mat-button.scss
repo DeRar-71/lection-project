@@ -1,6 +1,10 @@
 @use '../mixins/typography';
 
 .mdc-button.mdc-button {
+  --_disabled-container-color: transparent;
+  --_disabled-container-opacity: 0;
+
+
   --mdc-filled-button-container-color: var(--md-sys-color-primary);
   --mdc-filled-button-label-text-color: var(--md-sys-color-on-primary);
   --mdc-filled-button-container-height: 40px;
@@ -8,6 +12,21 @@
   --mat-filled-button-state-layer-color: var(--md-sys-color-on-primary);
   --mat-filled-button-hover-state-layer-opacity: 0.08;
   --mat-filled-button-ripple-color: var(--md-sys-color-on-primary);
+  --mdc-filled-button-disabled-label-text-color: var(--md-sys-color-on-surface);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--_disabled-container-color);
+    opacity: var(--_disabled-container-opacity);
+    border-radius: var(--mdc-filled-button-container-shape);
+  }
+
+  &[disabled]::before {
+    --_disabled-container-color: var(--md-sys-color-on-surface);
+    --_disabled-container-opacity: 0.12;
+  }
 
   .mdc-button__label {
     @include typography.label-large;

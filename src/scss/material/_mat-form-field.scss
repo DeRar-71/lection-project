@@ -2,6 +2,10 @@
 
 .mdc-text-field.mdc-text-field {
   padding: 0 16px;
+  --error-label-text-color: var(--md-sys-color-error);
+  &:hover {
+    --error-label-text-color: var(--md-sys-color-on-error-container);
+  }
 }
 
 .mat-mdc-text-field-wrapper {
@@ -19,15 +23,26 @@
   @include typography.body-large;
   --mdc-filled-text-field-label-text-color: var(--md-sys-color-on-surface-variant);
   --mdc-filled-text-field-focus-label-text-color: var(--md-sys-color-primary);
+  --mdc-filled-text-field-error-label-text-color: var(--error-label-text-color);
+  --mdc-filled-text-field-error-focus-label-text-color: var(--md-sys-color-error);
 }
 
 .mdc-line-ripple {
   --mdc-filled-text-field-hover-active-indicator-color: var(--md-sys-color-on-surface);
   --mdc-filled-text-field-focus-active-indicator-color: var(--md-sys-color-primary);
+  --mdc-filled-text-field-error-active-indicator-color: var(--md-sys-color-error);
+  --mdc-filled-text-field-error-focus-active-indicator-color: var(--md-sys-color-error);
+  --mdc-filled-text-field-error-hover-active-indicator-color: var(--md-sys-color-on-error-container);
+}
+
+.mat-mdc-form-field-error {
+  @include typography.body-small;
+  --mat-form-field-error-text-color: var(--md-sys-color-error);
 }
 
 .mat-mdc-input-element.mat-mdc-form-field-input-control.mdc-text-field__input {
   @include typography.body-large;
   --mdc-filled-text-field-input-text-color: var(--md-sys-color-on-surface);
   --mdc-filled-text-field-caret-color: var(--md-sys-color-primary);
+  --mdc-filled-text-field-error-caret-color: var(--md-sys-color-error);
 }
