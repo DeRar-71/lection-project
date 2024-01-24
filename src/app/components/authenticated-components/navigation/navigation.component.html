@@ -14,10 +14,10 @@
 
   <mat-divider class="tablet-hidden navigation__divider"></mat-divider>
 
-  <mat-list-item class="navigation__item" routerLink="/login" routerLinkActive="mdc-list-item--activated">
+  <mat-list-item class="navigation__item" (click)="logout()">
     <a class="navigation__link">
-      <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">login</div>
-      <div class="navigation__label" (click)="onItemClick($event)">Login</div>
+      <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">logout</div>
+      <div class="navigation__label" (click)="onItemClick($event)">Logout</div>
     </a>
   </mat-list-item>
 </mat-nav-list>

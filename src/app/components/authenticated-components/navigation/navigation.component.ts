@@ -5,7 +5,8 @@ import { NavigationService } from "../../../services/navigation/navigation.servi
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRipple, MatRippleModule} from "@angular/material/core";
-import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'cm-navigation',
@@ -20,7 +21,11 @@ export class NavigationComponent implements OnInit{
 
   public navigationItems: INavigationItem[] = [];
 
-  constructor(private navigationService: NavigationService) {
+  constructor(
+    private navigationService: NavigationService,
+    private authService: AuthService,
+    private router: Router,
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,6 +41,11 @@ export class NavigationComponent implements OnInit{
 
   showInfo(navItem: INavigationItem): void {
     console.log('Clicked on:', navItem);
+  }
+
+  public logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   public onItemClick(event: any) {

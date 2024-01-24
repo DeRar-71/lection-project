@@ -1,0 +1,7 @@
+<mat-card class="book-card">
+  <div class="book-card__title">{{ book.name }}</div>
+  <div class="book-card__author">{{ book.author | author}}</div>
+  <div class="book-card__actions">
+    <button mat-flat-button routerLink="/edit-book">Edit</button>
+  </div>
+</mat-card>

@@ -7,7 +7,7 @@
       <mat-form-field class="auth-form__input">
         <mat-label>Email</mat-label>
         <input type="email" name="email" matInput formControlName="email" autocomplete="email"/>
-        @if (email?.invalid && (email?.dirty || email?.touched)) {
+        @if (email.invalid && (email.dirty || email.touched)) {
           <mat-error>{{getErrorMessageForEmail()}}</mat-error>
         }
       </mat-form-field>
@@ -15,7 +15,7 @@
       <mat-form-field class="auth-form__input">
         <mat-label>Password</mat-label>
         <input type="password" name="password" matInput formControlName="password" autocomplete="new-password"/>
-        @if (password?.invalid && (password?.dirty || password?.touched)) {
+        @if (password.invalid && (password.dirty || password.touched)) {
           <mat-error>{{getErrorMessageForPassword()}}</mat-error>
         }
       </mat-form-field>
@@ -23,7 +23,7 @@
       <mat-form-field class="auth-form__input">
         <mat-label>Confirm password</mat-label>
         <input type="password" name="confirm-password" matInput formControlName="confirmPassword" autocomplete="new-password"/>
-        @if (confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)) {
+        @if (confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)) {
           <mat-error>{{getErrorMessageForPassword()}}</mat-error>
         }
       </mat-form-field>

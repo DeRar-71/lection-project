@@ -31,6 +31,8 @@
 .main {
   grid-area: main;
   background-color: var(--md-sys-color-surface);
+  display: flex;
+  justify-content: center;
 }
 
 .footer {
@@ -41,4 +43,10 @@
 
 .navigation-section {
   grid-area: nav;
+}
+
+.container {
+  max-width: 920px;
+  width: 100%;
+  padding: 24px;
 }

@@ -6,6 +6,7 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {AuthorPipe} from "../../../pipes/author/author.pipe";
 import {RouterLink} from "@angular/router";
+import {BookComponent} from "../book/book.component";
 
 @Component({
   selector: 'cm-books',
@@ -16,7 +17,8 @@ import {RouterLink} from "@angular/router";
     NgOptimizedImage,
     RouterLink,
     NgOptimizedImage,
-    AuthorPipe
+    AuthorPipe,
+    BookComponent
   ],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss'

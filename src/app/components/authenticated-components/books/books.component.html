@@ -1,22 +1,17 @@
-<button mat-flat-button (click)="addBook()" routerLink="/add-book">Add book</button>
+<div class="books">
+  <div class="books__actions">
+    <button mat-flat-button (click)="addBook()" routerLink="/add-book">Add book</button>
+  </div>
 
-<div class="book-list">
-  @for(book of books; track book.id) {
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Author</mat-card-title>
-        <mat-card-subtitle>{{ book.author | author}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          {{ book.name }}
-        </p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-button routerLink="/edit-book">Edit</button>
-      </mat-card-actions>
-    </mat-card>
-  }
+  <div class="books__list">
+    @for(book of books; track book.id) {
+      <cm-book [book]="book"></cm-book>
+    }
+  </div>
+
 </div>
+
+
+
+
 

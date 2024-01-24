@@ -1,0 +1,28 @@
+@use '../../../../scss/mixins/typography';
+
+.main-section {
+  &__content {
+    @include typography.body-large;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  &__feature {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+}
+

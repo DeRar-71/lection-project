@@ -4,7 +4,8 @@ import {MatInputModule} from "@angular/material/input";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'cm-login',
@@ -22,6 +23,14 @@ import {RouterLink} from "@angular/router";
   styleUrls: ['../shared-styles.scss', './login.component.scss']
 })
 export class LoginComponent {
+
+  public constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
+
+  }
+
   loginForm : FormGroup = new FormGroup({
     email: new FormControl<string>('', [
       Validators.required,
@@ -38,9 +47,8 @@ export class LoginComponent {
   }
 
   login() {
-    // Здесь вы можете добавить логику для обработки введенных данных, например, отправку запроса на сервер
-    console.log('Logging in with:', this.loginForm.value.email, this.loginForm.value.password, this.loginForm.status);
-    // Добавьте соответствующий код для аутентификации
+    this.authService.authorization();
+    this.router.navigate(['/home']);
   }
 
   getErrorMessageForEmail(): string {

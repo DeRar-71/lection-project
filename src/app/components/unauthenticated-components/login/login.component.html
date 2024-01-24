@@ -6,16 +6,16 @@
       <div class="auth-form__inputs">
         <mat-form-field class="auth-form__input">
           <mat-label>Email</mat-label>
-          <input type="email" name="email" formControlName="email" matInput/>
-          @if (email?.invalid && (email?.dirty || email?.touched)) {
+          <input type="email" name="email" formControlName="email" matInput autocomplete="email"/>
+          @if (email.invalid && (email.dirty || email.touched)) {
             <mat-error>{{getErrorMessageForEmail()}}</mat-error>
           }
         </mat-form-field>
 
         <mat-form-field class="auth-form__input">
           <mat-label>Password</mat-label>
-          <input type="password" name="password" formControlName="password" matInput/>
-          @if (password?.invalid && (password?.dirty || password?.touched)) {
+          <input type="password" name="password" formControlName="password" matInput autocomplete="current-password"/>
+          @if (password.invalid && (password.dirty || password.touched)) {
             <mat-error>{{getErrorMessageForPassword()}}</mat-error>
           }
         </mat-form-field>

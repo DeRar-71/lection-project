@@ -1,7 +1,18 @@
-.book-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.books {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &__actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 }
 
 .example-card {
