@@ -28,6 +28,8 @@ export const routes: Routes = [
       {
         path: 'books',
         component: BooksComponent,
+        children: [
+        ]
       },
       {
         path: 'add-book',

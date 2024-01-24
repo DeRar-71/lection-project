@@ -13,16 +13,22 @@ export class NavigationService {
   getNavigationItems(): Observable<INavigationItem[]> {
     const navigationItems: INavigationItem[] = [
       {
-        id: '1',
+        id: 1,
         label: 'Home',
         icon: 'home',
-        link: '/home'
+        link: 'home'
       },
       {
-        id: '2',
+        id: 2,
         label: 'Books',
         icon: 'book',
         link: 'books'
+      },
+      {
+        id: 3,
+        label: 'Add book',
+        icon: 'library_add',
+        link: 'add-book'
       }
     ];
 

@@ -50,6 +50,7 @@
   --md-sys-color-surface-container-lowest: var(--md-sys-color-surface-container-lowest-light);
   --md-sys-color-surface-bright: var(--md-sys-color-surface-bright-light);
   --md-sys-color-surface-dim: var(--md-sys-color-surface-dim-light);
+  --md-sys-card-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
 }
 
 @mixin _dark-theme {
@@ -102,6 +103,7 @@
   --md-sys-color-surface-container-lowest: var(--md-sys-color-surface-container-lowest-dark);
   --md-sys-color-surface-bright: var(--md-sys-color-surface-bright-dark);
   --md-sys-color-surface-dim: var(--md-sys-color-surface-dim-dark);
+  --md-sys-card-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 :root {

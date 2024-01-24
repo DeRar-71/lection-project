@@ -2,22 +2,26 @@
   <div class="tablet-hidden navigation__title">Menu</div>
 
   @for (navItem of navigationItems; track navItem.id) {
-    <mat-list-item class="navigation__item" (click)="onItemClick($event)" routerLink="{{ navItem.link }}" routerLinkActive="mdc-list-item--activated">
+    <a mat-list-item
+       class="navigation__item"
+       routerLink="{{ navItem.link }}"
+       [activated]="(activeLinkId$ | async) === navItem.id" (click)="setActiveMenuId(navItem.id)"
+    >
 
-      <a class="navigation__link">
+      <div class="navigation__content">
         <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">{{ navItem.icon }}</div>
         <div class="navigation__label">{{ navItem.label }}</div>
-      </a>
+      </div>
 
-    </mat-list-item>
+    </a>
   }
 
   <mat-divider class="tablet-hidden navigation__divider"></mat-divider>
 
-  <mat-list-item class="navigation__item" (click)="logout()">
-    <a class="navigation__link">
+  <a mat-list-item class="navigation__item" (click)="logout()">
+    <div class="navigation__content">
       <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">logout</div>
-      <div class="navigation__label" (click)="onItemClick($event)">Logout</div>
-    </a>
-  </mat-list-item>
+      <div class="navigation__label">Logout</div>
+    </div>
+  </a>
 </mat-nav-list>

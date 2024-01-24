@@ -2,7 +2,7 @@
 @use '../../../../scss/mixins/typography';
 
 .navigation{
-  --_width: 100dvw;
+  --_width: 100%;
   --_gap: 8px;
   --_flex-direction: row;
   --_justify-content: space-around;
@@ -62,7 +62,7 @@
     }
   }
 
-  &__link {
+  &__content {
     --_flex-direction: column;
     --_gap: 4px;
 

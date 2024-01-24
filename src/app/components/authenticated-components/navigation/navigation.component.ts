@@ -7,11 +7,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatRipple, MatRippleModule} from "@angular/material/core";
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
+import {BehaviorSubject, Observable} from "rxjs";
+import {AsyncPipe} from "@angular/common";
+import {FocusRemoverDirective} from "../../../directives/focus-remover.directive";
 
 @Component({
   selector: 'cm-navigation',
   standalone: true,
-  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule, RouterLink, RouterOutlet, RouterLinkActive],
+  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule, RouterLink, RouterOutlet, RouterLinkActive, AsyncPipe, FocusRemoverDirective],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
@@ -19,6 +22,8 @@ export class NavigationComponent implements OnInit{
 
   @ViewChild(MatRipple) ripple?: MatRipple;
 
+  private activeLinkIdSubject:BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+  activeLinkId$: Observable<number | null> = this.activeLinkIdSubject.asObservable();
   public navigationItems: INavigationItem[] = [];
 
   constructor(
@@ -30,6 +35,7 @@ export class NavigationComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadNavigationItems();
+    this.setActiveMenuId(this.navigationItems[0].id);
   }
 
   private loadNavigationItems(): void {
@@ -48,14 +54,18 @@ export class NavigationComponent implements OnInit{
     this.router.navigate(['/login']);
   }
 
-  public onItemClick(event: any) {
-    if (!this.ripple) return;
-
-    const rippleRef = this.ripple.launch({
-      persistent: true,
-      centered: true
-    });
-
-    rippleRef.fadeOut();
+  public setActiveMenuId(linkId: number): void {
+    this.activeLinkIdSubject.next(linkId);
   }
+
+  // public onItemClick(event: any) {
+  //   if (!this.ripple) return;
+  //
+  //   const rippleRef = this.ripple.launch({
+  //     persistent: true,
+  //     centered: true
+  //   });
+  //
+  //   rippleRef.fadeOut();
+  // }
 }

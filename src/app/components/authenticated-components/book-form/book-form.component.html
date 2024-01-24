@@ -1,0 +1,22 @@
+<div class="book-action-section">
+  <form class="book-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <div class="book-form__title">{{ titleForm }}</div>
+    <div class="book-form__body">
+      <div class="book-form__inputs">
+        <mat-form-field class="book-form__input">
+          <mat-label>Name</mat-label>
+          <input type="text" name="name" formControlName="name" matInput/>
+        </mat-form-field>
+
+        <mat-form-field class="book-form__input">
+          <mat-label>Author</mat-label>
+          <input type="text" name="author" formControlName="author" matInput/>
+        </mat-form-field>
+      </div>
+      <div class="book-form__actions">
+        <button mat-flat-button color="primary" class="book-form__button" backButton>Back</button>
+        <button mat-flat-button color="primary" class="book-form__button" [disabled]="formData.invalid">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

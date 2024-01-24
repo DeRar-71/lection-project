@@ -1,0 +1,41 @@
+@use '../../../../scss/mixins/typography';
+
+.book-action-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  height: 100%;
+  background-color: var(--md-sys-color-surface-container-low);
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+  &__title {
+    @include typography.body-large;
+  }
+
+  &__body, &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__input {
+    min-width: 300px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+}

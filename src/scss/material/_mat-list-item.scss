@@ -5,6 +5,8 @@
   --_active-item-container-color: transparent;
   --_active-item-container-hover-color: transparent;
   --_visibility-ripple: hidden;
+  --_item-focus-state-layer-color: transparent;
+
   --mdc-list-list-item-container-shape: 0px;
   --mdc-nav-list-item-padding: 0;
   --mdc-list-list-item-one-line-container-height: 56px;
@@ -13,6 +15,8 @@
   --mdc-list-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
   --mdc-list-list-item-hover-label-text-color: var(--md-sys-color-on-surface);
   --mdc-list-list-item-hover-leading-icon-color: var(--md-sys-color-on-surface);
+  --mdc-list-list-item-focus-state-layer-color: var(--_item-focus-state-layer-color);
+  --mdc-list-list-item-focus-label-text-color: var(--md-sys-color-on-surface-variant);
 
   @include media-breakpoints.desktop {
     --mdc-list-list-item-hover-state-layer-color: var(--md-sys-color-on-surface);
@@ -20,6 +24,7 @@
     --_active-item-container-hover-color: var(--md-sys-color-on-secondary-container);
     --mdc-list-list-item-container-shape: 100px;
     --mdc-nav-list-item-padding: 16px 24px 16px 16px;
+    --mdc-list-list-item-focus-state-layer-color: var(--mdc-list-list-item-focus-state-layer-color);
   }
 
   padding: var(--mdc-nav-list-item-padding);
