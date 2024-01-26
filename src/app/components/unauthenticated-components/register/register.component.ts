@@ -4,6 +4,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {RouterLink} from "@angular/router";
+import {passwordConfirmDirective} from "../../../directives/password-confirm.directive";
+import {AuthService} from "../../../services/auth/auth.service";
+import {IRegister} from "../../../interfaces/auth/IRegister";
 
 @Component({
   selector: 'cm-register',
@@ -27,7 +30,14 @@ export class RegisterComponent {
       ]),
       password: new FormControl<string>('', Validators.required),
       confirmPassword: new FormControl<string>('', Validators.required),
-    })
+    },
+      {
+        validators: passwordConfirmDirective
+      }
+    )
+
+    constructor(private _authService: AuthService) {
+    }
 
     get email(): FormControl<string>
     {
@@ -45,7 +55,12 @@ export class RegisterComponent {
     }
 
     public register() {
-      console.log('test');
+      const register: IRegister = {
+        email: this.email.value,
+        password: this.password.value
+      }
+
+      this._authService.register(register);
     }
 
   getErrorMessageForEmail(): string {
@@ -70,6 +85,17 @@ export class RegisterComponent {
     }
 
     if (this.password?.errors?.['required']) {
+      return 'Password is required';
+    }
+
+    return '';
+  }
+  getErrorMessageForConfirmPassword(): string {
+    if (this.confirmPassword?.errors === null) {
+      return '';
+    }
+
+    if (this.confirmPassword?.errors?.['required']) {
       return 'Password is required';
     }
 

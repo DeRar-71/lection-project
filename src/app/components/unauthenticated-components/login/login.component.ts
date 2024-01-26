@@ -6,6 +6,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'cm-login',
@@ -26,7 +27,8 @@ export class LoginComponent {
 
   public constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
 
   }
@@ -47,8 +49,9 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.authorization();
+    this.authService.login();
     this.router.navigate(['/home']);
+    this.openSnackBar('Registration successful', 'success');
   }
 
   getErrorMessageForEmail(): string {
@@ -77,5 +80,12 @@ export class LoginComponent {
     }
 
     return '';
+  }
+
+  private openSnackBar(message: string, panelClass: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 3000,
+      panelClass: [panelClass],
+    });
   }
 }

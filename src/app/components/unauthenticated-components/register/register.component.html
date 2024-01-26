@@ -24,10 +24,17 @@
         <mat-label>Confirm password</mat-label>
         <input type="password" name="confirm-password" matInput formControlName="confirmPassword" autocomplete="new-password"/>
         @if (confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)) {
-          <mat-error>{{getErrorMessageForPassword()}}</mat-error>
+          <mat-error>{{getErrorMessageForConfirmPassword()}}</mat-error>
         }
       </mat-form-field>
     </div>
+
+    <div class="auth-form__errors">
+      @if (registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid) {
+        <mat-error>Password should match</mat-error>
+      }
+    </div>
+
     <div class="auth-form__actions">
       <button mat-flat-button color="primary" class="auth-form__button" [disabled]="registerForm.invalid">Register</button>
       <span class="auth-form__support">Already a member? <a routerLink="/login" class="auth-form__link">Login</a></span>
