@@ -1,1 +1,1 @@
-<cm-book-form (submitForm)="edit()" titleForm="Edit book"></cm-book-form>
+<cm-book-form [bookName]="bookName" [bookAuthor]="bookAuthor" (formEvent)="edit()" titleForm="Edit book" buttonName="Edit" #bookEditForm></cm-book-form>

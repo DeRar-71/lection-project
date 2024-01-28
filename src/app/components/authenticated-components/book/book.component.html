@@ -7,7 +7,7 @@
     Magic, adventure, mystery—where enchantment leaps off the pages.
   </div>
   <div class="book-card__actions">
-    <button mat-flat-button routerLink="/edit-book">Edit</button>
-    <button mat-flat-button color="warn" routerLink="/delete-book">Delete</button>
+    <button mat-flat-button routerLink="/edit-book/{{ book.id }}">Edit</button>
+    <button mat-flat-button color="warn" (click)="delete(book.id)">Delete</button>
   </div>
 </mat-card>

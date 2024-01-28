@@ -6,7 +6,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {ILogin} from "../../../interfaces/auth/ILogin";
+import {FormFieldComponent} from "../../common/form-field/form-field.component";
+import {NotificationService} from "../../../services/notification/notification.service";
 
 @Component({
   selector: 'cm-login',
@@ -18,7 +20,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatButtonModule,
     MatCardModule,
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormFieldComponent
   ],
   templateUrl: './login.component.html',
   styleUrls: ['../shared-styles.scss', './login.component.scss']
@@ -28,7 +31,7 @@ export class LoginComponent {
   public constructor(
     private authService: AuthService,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private notify: NotificationService
   ) {
 
   }
@@ -49,43 +52,20 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.login();
-    this.router.navigate(['/home']);
-    this.openSnackBar('Registration successful', 'success');
-  }
-
-  getErrorMessageForEmail(): string {
-    if (this.email?.errors === null) {
-      return '';
+    const loginData: ILogin = {
+      email: this.email.value,
+      password: this.password.value,
     }
 
-    if (this.email?.errors?.['required']) {
-      return 'Email is required';
-    }
-
-    if (this.email?.errors?.['email']) {
-      return 'Email should be valid';
-    }
-
-    return '';
-  }
-
-  getErrorMessageForPassword(): string {
-    if (this.password?.errors === null) {
-      return '';
-    }
-
-    if (this.password?.errors?.['required']) {
-      return 'Password is required';
-    }
-
-    return '';
-  }
-
-  private openSnackBar(message: string, panelClass: string) {
-    this._snackBar.open(message, 'Close', {
-      duration: 3000,
-      panelClass: [panelClass],
+    this.authService.login(loginData).subscribe({
+      next: () => {
+        this.notify.sendSuccessNotify('Login successful');
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.notify.sendFailNotify(err)
+      }
     });
   }
+
 }

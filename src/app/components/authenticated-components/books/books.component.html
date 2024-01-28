@@ -1,14 +1,23 @@
 <div class="books">
   <div class="books__actions">
-    <button mat-flat-button (click)="addBook()" routerLink="/add-book">Add book</button>
-  </div>
-
-  <div class="books__list">
-    @for(book of books; track book.id) {
-      <cm-book [book]="book"></cm-book>
+    <button mat-flat-button routerLink="/add-book">Add book</button>
+    <button mat-flat-button routerLink="/generate-books">Generate books</button>
+    @if(books.length > 0) {
+      <button mat-flat-button (click)="deleteBooks()">Delete Books</button>
     }
   </div>
+
+  @if(books.length > 0) {
+    <div class="books__list">
+      @for(book of books; track book.id) {
+        <cm-book [book]="book" (deleteBookEvent)="handleBookDelete()"></cm-book>
+      }
+    </div>
+  } @else {
+    You don't have any books yet
+  }
 </div>
+
 
 
 

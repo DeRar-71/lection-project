@@ -16,7 +16,7 @@ export class NavigationService {
         id: 1,
         label: 'Home',
         icon: 'home',
-        link: 'home'
+        link: ''
       },
       {
         id: 2,
@@ -32,7 +32,7 @@ export class NavigationService {
       }
     ];
 
-    if (this.authService.isLoggedIn) {
+    if (this.authService.isAuthenticated()) {
       return of(navigationItems);
     }
 

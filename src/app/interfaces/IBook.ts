@@ -1,7 +1,7 @@
 import {IAuthor} from "./IAuthor";
 
 export interface IBook {
-  id: number;
+  id: string;
   name: string;
-  author: IAuthor;
+  author: string;
 }

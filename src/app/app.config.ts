@@ -1,14 +1,20 @@
-import {ApplicationConfig, importProvidersFrom} from '@angular/core';
+import {ApplicationConfig} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {provideHttpClient, withFetch, withInterceptors} from "@angular/common/http";
+import {contentTypeInterceptor} from "./interceptors/contentType/content-type.interceptor";
+import {jwtInterceptor} from "./interceptors/jwt/jwt.interceptor";
+import {errorInterceptor} from "./interceptors/error/error.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    importProvidersFrom(HttpClientModule)
+    provideHttpClient(
+      withInterceptors([contentTypeInterceptor, jwtInterceptor, errorInterceptor]),
+      withFetch(),
+    )
   ]
 };

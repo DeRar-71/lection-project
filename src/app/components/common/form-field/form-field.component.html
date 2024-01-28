@@ -1,0 +1,15 @@
+@if(control) {
+  <mat-form-field>
+    <mat-label>{{label}}</mat-label>
+    <input
+      [type]="type"
+      [name]="name"
+      matInput
+      [formControl]="control"
+
+    />
+    @if (control?.invalid && (control?.dirty || control?.touched)) {
+      <mat-error>{{ errorMessage }}</mat-error>
+    }
+  </mat-form-field>
+}

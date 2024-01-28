@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<div [ngClass]="{
+  'grid-container-not-auth': !isAuthenticated(),
+  'grid-container-auth': isAuthenticated(),
+}">
+  <header class="header">
+    <cm-header></cm-header>
+  </header>
+  <main class="main">
+    <div class="container">
+      @if (isAuthenticated()) {
+        <router-outlet></router-outlet>
+      } @else {
+        <cm-unauthenticated-layout-component></cm-unauthenticated-layout-component>
+      }
+    </div>
+  </main>
+  <footer class="footer">
+    <cm-footer></cm-footer>
+  </footer>
+  @if (isAuthenticated()) {
+    <nav class="navigation-section">
+      <cm-navigation></cm-navigation>
+    </nav>
+  }
+</div>

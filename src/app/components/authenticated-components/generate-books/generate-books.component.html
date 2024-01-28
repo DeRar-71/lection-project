@@ -1,0 +1,14 @@
+<div class="book-action-section">
+  <form class="book-form" [formGroup]="form" (ngSubmit)="generateBook()">
+    <div class="book-form__title">Generate books</div>
+    <div class="book-form__body">
+      <div class="book-form__inputs">
+        <cm-form-field label="Number of books" name="name" type="number" controlName="numberBooks" [control]="numberBooks" class="book-form__input"></cm-form-field>
+      </div>
+      <div class="book-form__actions">
+        <button mat-flat-button color="primary" class="book-form__button" backButton>Back</button>
+        <button mat-flat-button color="primary" class="book-form__button" [disabled]="form.invalid">Generate</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -3,10 +3,14 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {passwordConfirmDirective} from "../../../directives/password-confirm.directive";
 import {AuthService} from "../../../services/auth/auth.service";
 import {IRegister} from "../../../interfaces/auth/IRegister";
+import {ValidationService} from "../../../services/ValidationService";
+import {FormFieldComponent} from "../../common/form-field/form-field.component";
+import {NgIf} from "@angular/common";
+import {NotificationService} from "../../../services/notification/notification.service";
 
 @Component({
   selector: 'cm-register',
@@ -17,88 +21,80 @@ import {IRegister} from "../../../interfaces/auth/IRegister";
     MatFormFieldModule,
     MatInputModule,
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormFieldComponent,
+    NgIf
   ],
   templateUrl: './register.component.html',
   styleUrls: ['../shared-styles.scss', './register.component.scss']
 })
 export class RegisterComponent {
-    public registerForm: FormGroup = new FormGroup({
-      email: new FormControl<string>('', [
-        Validators.required,
-        Validators.email,
-      ]),
-      password: new FormControl<string>('', Validators.required),
-      confirmPassword: new FormControl<string>('', Validators.required),
-    },
-      {
-        validators: passwordConfirmDirective
-      }
-    )
 
-    constructor(private _authService: AuthService) {
-    }
-
-    get email(): FormControl<string>
-    {
-      return this.registerForm.controls['email'] as FormControl<string>;
-    }
-
-    get password(): FormControl<string>
-    {
-      return this.registerForm.controls['password'] as FormControl<string>;
-    }
-
-    get confirmPassword(): FormControl<string>
-    {
-      return this.registerForm.controls['confirmPassword'] as FormControl<string>;
-    }
-
-    public register() {
-      const register: IRegister = {
-        email: this.email.value,
-        password: this.password.value
-      }
-
-      this._authService.register(register);
-    }
-
-  getErrorMessageForEmail(): string {
-    if (this.email?.errors === null) {
-      return '';
-    }
-
-    if (this.email?.errors?.['required']) {
-      return 'Email is required';
-    }
-
-    if (this.email?.errors?.['email']) {
-      return 'Email should be valid';
-    }
-
-    return '';
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private notifyService: NotificationService,
+    protected validationService: ValidationService,
+  ) {
   }
 
-  getErrorMessageForPassword(): string {
-    if (this.password?.errors === null) {
-      return '';
+  public registerForm: FormGroup = new FormGroup({
+    name: new FormControl<string>('', Validators.required),
+    email: new FormControl<string>('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    password: new FormControl<string>('', Validators.required),
+    confirmPassword: new FormControl<string>('', Validators.required),
+  },
+    {
+      validators: passwordConfirmDirective
     }
+  )
 
-    if (this.password?.errors?.['required']) {
-      return 'Password is required';
-    }
-
-    return '';
+  get name(): FormControl<string>
+  {
+    return this.registerForm.controls['name'] as FormControl<string>;
   }
-  getErrorMessageForConfirmPassword(): string {
-    if (this.confirmPassword?.errors === null) {
-      return '';
+
+  get email(): FormControl<string>
+  {
+    return this.registerForm.controls['email'] as FormControl<string>;
+  }
+
+  get password(): FormControl<string>
+  {
+    return this.registerForm.controls['password'] as FormControl<string>;
+  }
+
+  get confirmPassword(): FormControl<string>
+  {
+    return this.registerForm.controls['confirmPassword'] as FormControl<string>;
+  }
+
+  public register(): void {
+    const register: IRegister = {
+      name: this.name.value,
+      email: this.email.value,
+      password: this.password.value
     }
 
-    if (this.confirmPassword?.errors?.['required']) {
-      return 'Password is required';
+    this.authService.register(register).subscribe({
+      next: (): void => {
+        this.notifyService.sendSuccessNotify("Successfully registered");
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        this.notifyService.sendFailNotify(err.message);
+      }
+    });
+  }
+
+  getFormErrorMessage(): string|null {
+    if (this.registerForm.errors?.['passwordMismatch'] && this.confirmPassword.valid && this.password.valid) {
+      return this.validationService.getFormErrorMessage(this.registerForm);
     }
 
-    return '';
+    return null;
   }
 }

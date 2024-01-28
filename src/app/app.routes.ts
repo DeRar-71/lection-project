@@ -8,38 +8,36 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
 import {authGuard} from "./guards/auth/auth.guard";
 import {HomeComponent} from "./components/authenticated-components/home/home.component";
 import {
-  AuthenticatedLayoutComponentComponent
-} from "./components/authenticated-components/authenticated-layout-component/authenticated-layout-component.component";
-import {
   UnauthenticatedLayoutComponentComponent
 } from "./components/unauthenticated-components/unauthenticated-layout-component/unauthenticated-layout-component.component";
 import {notAuthGuardGuard} from "./guards/notAuthGuard/not-auth-guard.guard";
+import {GenerateBooksComponent} from "./components/authenticated-components/generate-books/generate-books.component";
 
 export const routes: Routes = [
   {
     path: '',
-    component: AuthenticatedLayoutComponentComponent,
-    canActivate: [authGuard],
-    children: [
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-      {
-        path: 'books',
-        component: BooksComponent,
-        children: [
-        ]
-      },
-      {
-        path: 'add-book',
-        component: AddBookComponent,
-      },
-      {
-        path: 'edit-book',
-        component: EditBookComponent,
-      },
-    ]
+    component: HomeComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'books',
+    component: BooksComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'generate-books',
+    component: GenerateBooksComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'add-book',
+    component: AddBookComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'edit-book/:id',
+    component: EditBookComponent,
+    canActivate: [authGuard]
   },
   {
     path: '',

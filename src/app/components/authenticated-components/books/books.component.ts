@@ -5,8 +5,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {AuthorPipe} from "../../../pipes/author/author.pipe";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {BookComponent} from "../book/book.component";
+import {NotificationService} from "../../../services/notification/notification.service";
 
 @Component({
   selector: 'cm-books',
@@ -26,7 +27,11 @@ import {BookComponent} from "../book/book.component";
 export class BooksComponent implements OnInit{
 
   public books: IBook[] = [];
-  constructor(private bookService: BookService) {
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private notifyService: NotificationService,
+  ) {
 
   }
 
@@ -35,14 +40,29 @@ export class BooksComponent implements OnInit{
   }
 
   public getAllBooks() {
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
+    this.bookService.getAll().subscribe({
+      next: (books) => {
+        this.books = books;
+      },
+      error: (err) => {
+        this.notifyService.sendFailNotify(err.message);
+      }
     });
   }
 
-  addBook() {
-    this.bookService.addBook().subscribe(() => {
-      this.getAllBooks();
+  public deleteBooks() {
+    this.bookService.deleteBooks().subscribe({
+     next: () => {
+       this.getAllBooks();
+       this.notifyService.sendFailNotify('Books deleted');
+     },
+      error: (err) => {
+        this.notifyService.sendFailNotify(err.message);
+      }
     });
+  }
+
+  public handleBookDelete() {
+    this.getAllBooks();
   }
 }

@@ -5,7 +5,8 @@
     <a mat-list-item
        class="navigation__item"
        routerLink="{{ navItem.link }}"
-       [activated]="(activeLinkId$ | async) === navItem.id" (click)="setActiveMenuId(navItem.id)"
+       routerLinkActive="mdc-list-item--activated"
+       [routerLinkActiveOptions]="{exact:true}"
     >
 
       <div class="navigation__content">

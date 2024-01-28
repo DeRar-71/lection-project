@@ -4,36 +4,17 @@
 
   <div class="auth-form__body">
     <div class="auth-form__inputs">
-      <mat-form-field class="auth-form__input">
-        <mat-label>Email</mat-label>
-        <input type="email" name="email" matInput formControlName="email" autocomplete="email"/>
-        @if (email.invalid && (email.dirty || email.touched)) {
-          <mat-error>{{getErrorMessageForEmail()}}</mat-error>
-        }
-      </mat-form-field>
-
-      <mat-form-field class="auth-form__input">
-        <mat-label>Password</mat-label>
-        <input type="password" name="password" matInput formControlName="password" autocomplete="new-password"/>
-        @if (password.invalid && (password.dirty || password.touched)) {
-          <mat-error>{{getErrorMessageForPassword()}}</mat-error>
-        }
-      </mat-form-field>
-
-      <mat-form-field class="auth-form__input">
-        <mat-label>Confirm password</mat-label>
-        <input type="password" name="confirm-password" matInput formControlName="confirmPassword" autocomplete="new-password"/>
-        @if (confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)) {
-          <mat-error>{{getErrorMessageForConfirmPassword()}}</mat-error>
-        }
-      </mat-form-field>
+      <cm-form-field label="Name" name="name" type="text" controlName="name" [control]="name" class="auth-form__input"></cm-form-field>
+      <cm-form-field label="Email" name="email" type="email" controlName="email" [control]="email" class="auth-form__input"></cm-form-field>
+      <cm-form-field label="Password" name="password" type="password" controlName="password" [control]="password" class="auth-form__input"></cm-form-field>
+      <cm-form-field label="Confirm password" name="confirm-password" type="password" controlName="confirmPassword" [control]="confirmPassword" class="auth-form__input"></cm-form-field>
     </div>
 
-    <div class="auth-form__errors">
-      @if (registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid) {
-        <mat-error>Password should match</mat-error>
-      }
-    </div>
+    <ng-container *ngIf="getFormErrorMessage() as errorMessage">
+      <div class="auth-form__errors">
+        <mat-error>{{ errorMessage }}</mat-error>
+      </div>
+    </ng-container>
 
     <div class="auth-form__actions">
       <button mat-flat-button color="primary" class="auth-form__button" [disabled]="registerForm.invalid">Register</button>
