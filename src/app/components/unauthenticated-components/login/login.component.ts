@@ -63,7 +63,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        this.notify.sendFailNotify(err)
+        this.notify.sendFailNotify(err.message)
       }
     });
   }

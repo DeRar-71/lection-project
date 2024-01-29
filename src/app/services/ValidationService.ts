@@ -10,7 +10,6 @@ export class ValidationService {
       return '';
     }
 
-    console.log(control.errors);
     if (control.errors['required']) {
       return 'Field is required';
     }

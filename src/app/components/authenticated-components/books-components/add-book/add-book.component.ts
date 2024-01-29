@@ -1,10 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import { FormsModule} from "@angular/forms";
 import {BookFormComponent} from "../book-form/book-form.component";
-import {IBookDto} from "../../../interfaces/IBookDto";
-import {BookService} from "../../../services/book/book.service";
-import {NotificationService} from "../../../services/notification/notification.service";
 import {Router} from "@angular/router";
+import {BookService} from "../../../../services/book/book.service";
+import {NotificationService} from "../../../../services/notification/notification.service";
+import {IBookDto} from "../../../../interfaces/IBookDto";
 
 @Component({
   selector: 'cm-add-book',
@@ -31,7 +31,7 @@ export class AddBookComponent {
         this.notifyService.sendSuccessNotify("New book added");
         this.router.navigate(['/books']);
       },
-      error: (err): void => {
+      error: (err: { message: any; }): void => {
         this.notifyService.sendFailNotify(err.message);
       }
     })

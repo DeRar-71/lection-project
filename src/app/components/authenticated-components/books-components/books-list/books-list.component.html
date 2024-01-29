@@ -1,7 +1,7 @@
 <div class="books">
   <div class="books__actions">
-    <button mat-flat-button routerLink="/add-book">Add book</button>
-    <button mat-flat-button routerLink="/generate-books">Generate books</button>
+    <button mat-flat-button routerLink="/books/add">Add book</button>
+    <button mat-flat-button routerLink="/books/generate">Generate books</button>
     @if(books.length > 0) {
       <button mat-flat-button (click)="deleteBooks()">Delete Books</button>
     }
@@ -17,9 +17,3 @@
     You don't have any books yet
   }
 </div>
-
-
-
-
-
-

@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
-import {IBook} from "../../../interfaces/IBook";
-import {AuthorPipe} from "../../../pipes/author/author.pipe";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
-import {BookService} from "../../../services/book/book.service";
-import {NotificationService} from "../../../services/notification/notification.service";
+import {AuthorPipe} from "../../../../pipes/author/author.pipe";
+import {IBook} from "../../../../interfaces/IBook";
+import {BookService} from "../../../../services/book/book.service";
+import {NotificationService} from "../../../../services/notification/notification.service";
 
 @Component({
   selector: 'cm-book',

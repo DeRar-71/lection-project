@@ -6,9 +6,9 @@
       [name]="name"
       matInput
       [formControl]="control"
-
+      autocomplete="off"
     />
-    @if (control?.invalid && (control?.dirty || control?.touched)) {
+    @if (control.invalid && (control.dirty || control.touched)) {
       <mat-error>{{ errorMessage }}</mat-error>
     }
   </mat-form-field>

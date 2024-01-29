@@ -5,7 +5,7 @@ import { NavigationService } from "../../../services/navigation/navigation.servi
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRipple, MatRippleModule} from "@angular/material/core";
-import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
 import {AsyncPipe} from "@angular/common";
 import {FocusRemoverDirective} from "../../../directives/focus-remover.directive";
@@ -26,7 +26,6 @@ export class NavigationComponent implements OnInit{
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
-    private router: Router,
   ) {
   }
 
@@ -47,7 +46,6 @@ export class NavigationComponent implements OnInit{
 
   public logout(): void {
     this.authService.logout();
-    this.router.navigate(['/login']);
   }
 
   // public onItemClick(event: any) {

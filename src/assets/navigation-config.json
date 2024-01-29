@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "label": "Home",
+    "icon": "home",
+    "link": ""
+  },
+  {
+    "id": 2,
+    "label": "Books",
+    "icon": "book",
+    "link": "books"
+  },
+  {
+    "id": 3,
+    "label": "Add book",
+    "icon": "library_add",
+    "link": "books/add"
+  }
+]

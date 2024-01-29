@@ -1,0 +1,25 @@
+@use '../../../../../scss/mixins/media-breakpoints';
+
+.books {
+  --_grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  @include media-breakpoints.tablet {
+    --_grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: var(--_grid-template-columns);
+    gap: 8px;
+  }
+}

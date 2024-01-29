@@ -3,10 +3,9 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {GoBackDirective} from "../../../directives/go-back.directive";
-import {FormFieldComponent} from "../../common/form-field/form-field.component";
-import {NotificationService} from "../../../services/notification/notification.service";
-
+import {GoBackDirective} from "../../../../directives/go-back.directive";
+import {FormFieldComponent} from "../../../common/form-field/form-field.component";
+import {NotificationService} from "../../../../services/notification/notification.service";
 @Component({
   selector: 'cm-book-form',
   standalone: true,
@@ -19,7 +18,7 @@ import {NotificationService} from "../../../services/notification/notification.s
         FormFieldComponent
     ],
   templateUrl: './book-form.component.html',
-  styleUrl: '../../../../scss/book-form.scss'
+  styleUrl: '../../../../../scss/book-form.scss'
 })
 export class BookFormComponent {
   @Output() formEvent: EventEmitter<any> = new EventEmitter<any>();

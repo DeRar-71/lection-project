@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {FormFieldComponent} from "../../common/form-field/form-field.component";
-import {GoBackDirective} from "../../../directives/go-back.directive";
 import {MatButtonModule} from "@angular/material/button";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {BookService} from "../../../services/book/book.service";
-import {NotificationService} from "../../../services/notification/notification.service";
 import {Router} from "@angular/router";
-import {IGenerateBooks} from "../../../interfaces/IGenerateBooks";
+import {FormFieldComponent} from "../../../common/form-field/form-field.component";
+import {GoBackDirective} from "../../../../directives/go-back.directive";
+import {BookService} from "../../../../services/book/book.service";
+import {NotificationService} from "../../../../services/notification/notification.service";
+import {IGenerateBooks} from "../../../../interfaces/IGenerateBooks";
 
 @Component({
   selector: 'cm-generate-books',
@@ -18,7 +18,7 @@ import {IGenerateBooks} from "../../../interfaces/IGenerateBooks";
     ReactiveFormsModule
   ],
   templateUrl: './generate-books.component.html',
-  styleUrl: '../../../../scss/book-form.scss'
+  styleUrl: '../../../../../scss/book-form.scss'
 })
 export class GenerateBooksComponent {
     constructor(

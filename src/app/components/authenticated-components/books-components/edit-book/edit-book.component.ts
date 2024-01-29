@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {BookFormComponent} from "../book-form/book-form.component";
-import {BookService} from "../../../services/book/book.service";
-import {NotificationService} from "../../../services/notification/notification.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {IBookDto} from "../../../interfaces/IBookDto";
+import {BookService} from "../../../../services/book/book.service";
+import {NotificationService} from "../../../../services/notification/notification.service";
+import {IBookDto} from "../../../../interfaces/IBookDto";
 
 @Component({
   selector: 'cm-edit-book',
