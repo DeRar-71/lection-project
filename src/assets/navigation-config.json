@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "label": "Home",
+    "label": "HOME",
     "icon": "home",
     "link": ""
   },
   {
     "id": 2,
-    "label": "Books",
+    "label": "BOOKS",
     "icon": "book",
     "link": "books"
   },
   {
     "id": 3,
-    "label": "Add book",
+    "label": "ADD_BOOK",
     "icon": "library_add",
     "link": "books/add"
   }

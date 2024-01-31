@@ -2,14 +2,14 @@
 
 .grid-container-auth {
   --_template-columns: 1fr;
-  --_template-rows: 120px 1fr 120px 80px;
+  --_template-rows: 120px 1fr 140px 80px;
   --_template-areas: 'header' 'main' 'footer' 'nav';
 
   height: 100dvh;
 
   @include media-breakpoints.tablet {
     --_template-columns: 80px 1fr;
-    --_template-rows: 100px 1fr 100px;
+    --_template-rows: 100px 1fr 140px;
     --_template-areas: 'nav header' 'nav main' 'nav footer';
   }
 
@@ -25,13 +25,13 @@
 
 .grid-container-not-auth {
   --_template-columns: 1fr;
-  --_template-rows: 120px 1fr 120px;
+  --_template-rows: 120px 1fr 140px;
   --_template-areas: 'header' 'main' 'footer';
 
   height: 100dvh;
 
   @include media-breakpoints.tablet {
-    --_template-rows: 100px 1fr 100px;
+    --_template-rows: 100px 1fr 140px;
   }
 
   display: grid;

@@ -1,5 +1,5 @@
 <mat-nav-list class="navigation">
-  <div class="tablet-hidden navigation__title">Menu</div>
+  <div class="tablet-hidden navigation__title">{{ 'MENU' | translate}}</div>
 
   @for (navItem of navigationItems; track navItem.id) {
     <a mat-list-item
@@ -11,7 +11,7 @@
 
       <div class="navigation__content">
         <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">{{ navItem.icon }}</div>
-        <div class="navigation__label">{{ navItem.label }}</div>
+        <div class="navigation__label">{{ navItem.label | translate}}</div>
       </div>
 
     </a>
@@ -22,7 +22,7 @@
   <a mat-list-item class="navigation__item" (click)="logout()">
     <div class="navigation__content">
       <div matListItemIcon matRipple class="navigation__icon material-symbols-outlined">logout</div>
-      <div class="navigation__label">Logout</div>
+      <div class="navigation__label">{{ 'LOGOUT' | translate }}</div>
     </div>
   </a>
 </mat-nav-list>

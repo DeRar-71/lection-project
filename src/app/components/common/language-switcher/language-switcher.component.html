@@ -1,0 +1,10 @@
+<mat-button-toggle-group class="lang-switch" [(ngModel)]="activeLanguage">
+  @for(language of languages; track 0) {
+    <mat-button-toggle (click)="changeLang(language)" [value]="language" class="lang-switch__btn">
+      @if(language === activeLanguage){
+        <span class="lang-switch__icon material-symbols-outlined">check</span>
+      }
+      <span>{{language | uppercase}}</span>
+    </mat-button-toggle>
+  }
+</mat-button-toggle-group>

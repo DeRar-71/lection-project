@@ -1,9 +1,9 @@
 <div class="books">
   <div class="books__actions">
-    <button mat-flat-button routerLink="/books/add">Add book</button>
-    <button mat-flat-button routerLink="/books/generate">Generate books</button>
+    <button mat-flat-button routerLink="/books/add">{{ 'BUTTONS.ADD_BOOK' | translate}}</button>
+    <button mat-flat-button routerLink="/books/generate">{{ 'BUTTONS.GENERATE_BOOK' | translate}}</button>
     @if(books.length > 0) {
-      <button mat-flat-button (click)="deleteBooks()">Delete Books</button>
+      <button mat-flat-button (click)="deleteBooks()">{{ 'BUTTONS.DELETE_ALL_BOOKS' | translate}}</button>
     }
   </div>
 
@@ -14,6 +14,6 @@
       }
     </div>
   } @else {
-    You don't have any books yet
+    {{ 'BOOKS_NOT_FOUND' | translate}}
   }
 </div>

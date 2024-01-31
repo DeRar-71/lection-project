@@ -1,13 +1,13 @@
 <mat-card class="book-card">
   <div class="book-card__heading">
     <div class="book-card__title">{{ book.name }}</div>
-    <div class="book-card__author">Author: {{ book.author | author}}</div>
+    <div class="book-card__author">{{ 'AUTHOR' | translate }}: {{ book.author | author}}</div>
   </div>
   <div class="book-card__content">
-    Magic, adventure, mystery—where enchantment leaps off the pages.
+    {{ 'BOOK_FAKE_TEXT' | translate }}
   </div>
   <div class="book-card__actions">
-    <button mat-flat-button routerLink="/books/edit/{{ book.id }}">Edit</button>
-    <button mat-flat-button color="warn" (click)="delete(book.id)">Delete</button>
+    <button mat-flat-button routerLink="/books/edit/{{ book.id }}">{{ 'BUTTONS.EDIT' | translate }}</button>
+    <button mat-flat-button color="warn" (click)="delete(book.id)">{{ 'BUTTONS.DELETE' | translate }}</button>
   </div>
 </mat-card>

@@ -1,29 +1,15 @@
 <div class="main-section">
   <div class="main-section__content">
 
-    <div class="main-section__text">Welcome to our convenient book reading app! Here, you'll find an endless variety of literary works covering all genres and directions. Our app is designed for true connoisseurs of words, craving new knowledge, adventures, and emotions.</div>
+    <div class="main-section__text">{{ 'HOME_PAGE.MAIN_TEXT' | translate}}</div>
 
     <section class="main-section__features">
-      <div class="main-section__feature">
-        <h2>Library of Diversity</h2>
-        <p>Hundreds of thousands of books from classics to modern bestsellers. We take pride in offering a wide selection that caters to every taste and interest.</p>
-      </div>
-      <div class="main-section__feature">
-        <h2>Search to Suit Your Taste</h2>
-        <p>Our powerful search engine will help you easily find books that match your preferences. Filter by authors, genres, ratings, and other parameters to quickly discover the perfect read.</p>
-      </div>
-      <div class="main-section__feature">
-        <h2>Personal Library</h2>
-        <p>Create your own collection of favorite works. Mark read books, give ratings, and share your impressions with friends.</p>
-      </div>
-      <div class="main-section__feature">
-        <h2>Always with You</h2>
-        <p>Our app is available on all devices, allowing you to read anywhere, anytime. Data synchronization ensures that your progress is saved, even if you switch to another device.</p>
-      </div>
-      <div class="main-section__feature">
-        <h2>New Releases and Recommendations</h2>
-        <p>Stay up-to-date with the latest literary trends through our regular updates and personalized recommendations based on your preferences.</p>
-      </div>
+      @for(content of contents;  track content.id) {
+        <div class="main-section__feature">
+          <h2>{{ content.title | translate}}</h2>
+          <p>{{ content.text | translate}}</p>
+        </div>
+      }
     </section>
   </div>
 </div>

@@ -9,11 +9,12 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
 import {AsyncPipe} from "@angular/common";
 import {FocusRemoverDirective} from "../../../directives/focus-remover.directive";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-navigation',
   standalone: true,
-  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule, RouterLink, RouterOutlet, RouterLinkActive, AsyncPipe, FocusRemoverDirective],
+  imports: [MatListModule, MatIconModule, MatButtonModule, MatRippleModule, RouterLink, RouterOutlet, RouterLinkActive, AsyncPipe, FocusRemoverDirective, TranslateModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })

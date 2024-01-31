@@ -1,6 +1,6 @@
 @if(control) {
   <mat-form-field>
-    <mat-label>{{label}}</mat-label>
+    <mat-label>{{label | uppercase | translate}}</mat-label>
     <input
       [type]="type"
       [name]="name"
@@ -9,7 +9,7 @@
       autocomplete="off"
     />
     @if (control.invalid && (control.dirty || control.touched)) {
-      <mat-error>{{ errorMessage }}</mat-error>
+      <mat-error>{{ errorMessage | translate}}</mat-error>
     }
   </mat-form-field>
 }

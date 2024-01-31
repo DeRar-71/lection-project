@@ -5,15 +5,17 @@ import {RouterLink} from "@angular/router";
 import {IBook} from "../../../../interfaces/IBook";
 import {BookService} from "../../../../services/book/book.service";
 import {NotificationService} from "../../../../services/notification/notification.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-books-list',
   standalone: true,
-    imports: [
-        BookComponent,
-        MatButtonModule,
-        RouterLink
-    ],
+  imports: [
+    BookComponent,
+    MatButtonModule,
+    RouterLink,
+    TranslateModule
+  ],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.scss'
 })
@@ -46,7 +48,7 @@ export class BooksListComponent implements OnInit{
     this.bookService.deleteBooks().subscribe({
       next: () => {
         this.getAllBooks();
-        this.notifyService.sendFailNotify('Books deleted');
+        this.notifyService.sendSuccessNotify('NOTIFY.THE_BOOKS_DELETED');
       },
       error: (err: { message: any; }) => {
         this.notifyService.sendFailNotify(err.message);

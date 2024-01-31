@@ -1,0 +1,80 @@
+{
+  "LOGIN": "Login",
+  "LOGIN_BUTTON": "Login",
+  "DONT_HAVE_ACCOUNT": "Don't have an account?",
+  "ALREADY_ACCOUNT": "Do you have an account?",
+  "REGISTER": "Register",
+  "REGISTER_BUTTON": "Register",
+  "REGISTRATION": "Registration",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "VALIDATION": {
+    "REQUIRED_FIELD": "Field is required",
+    "EMAIL_VALID": "Email should be valid",
+    "INVALID_TYPE": "Invalid data type",
+    "NUMBER_CANNOT_BE_LESS_1": "The number cannot be less than 1",
+    "PASSWORD_MISMATCH": "Password should match"
+  },
+  "NAME": "Name",
+  "CONFIRM_PASSWORD": "Confirm password",
+  "FOOTER_TEXT": "Codemasters Frontend Сourse",
+  "BUTTONS": {
+    "ADD_BOOK": "Add book",
+    "ADD": "Add",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "GENERATE_BOOK": "Generate books",
+    "GENERATE": "Generate",
+    "DELETE_ALL_BOOKS": "Delete Books",
+    "BACK": "Back",
+    "CLOSE": "Close"
+  },
+  "BOOKS_NOT_FOUND": "You don't have any books yet",
+  "ADD_BOOK": "Add book",
+  "EDIT_BOOK": "Edit book",
+  "AUTHOR": "Author",
+  "BOOK_FAKE_TEXT": "Magic, adventure, mystery—where enchantment leaps off the pages.",
+  "NUMBER_OF_BOOKS": "Number of books",
+  "GENERATE_BOOKS": "Generate books",
+  "LOGOUT": "Logout",
+  "MENU": "Menu",
+  "HOME": "Home",
+  "BOOKS": "Books",
+  "PAGE_NOT_FOUND": "Page Not Found",
+  "GO_HOME": "Go home",
+  "HOME_PAGE": {
+    "MAIN_TEXT": "Welcome to our convenient book reading app! Here, you'll find an endless variety of literary works covering all genres and directions. Our app is designed for true connoisseurs of words, craving new knowledge, adventures, and emotions.",
+    "TEXT_BLOCK_1" : {
+      "TITLE": "Library of Diversity",
+      "TEXT": "Hundreds of thousands of books from classics to modern bestsellers. We take pride in offering a wide selection that caters to every taste and interest."
+    },
+    "TEXT_BLOCK_2" : {
+      "TITLE": "Search to Suit Your Taste",
+      "TEXT": "Our powerful search engine will help you easily find books that match your preferences. Filter by authors, genres, ratings, and other parameters to quickly discover the perfect read."
+    },
+    "TEXT_BLOCK_3" : {
+      "TITLE": "Personal Library",
+      "TEXT": "Create your own collection of favorite works. Mark read books, give ratings, and share your impressions with friends."
+    },
+    "TEXT_BLOCK_4" : {
+      "TITLE": "Always with You",
+      "TEXT": "Our app is available on all devices, allowing you to read anywhere, anytime. Data synchronization ensures that your progress is saved, even if you switch to another device."
+    },
+    "TEXT_BLOCK_5" : {
+      "TITLE": "New Releases and Recommendations",
+      "TEXT": "Stay up-to-date with the latest literary trends through our regular updates and personalized recommendations based on your preferences."
+    }
+  },
+  "NAME_BOOK": "Name book",
+  "NOTIFY": {
+    "NEW_BOOK_ADDED": "Book added",
+    "LOGIN_SUCCESSFUL": "Login successful",
+    "THE_BOOK_DELETED": "The book deleted",
+    "THE_BOOKS_DELETED": "The books deleted",
+    "SUCCESSFUL_REGISTERED": "Successfully registered",
+    "BOOKS_UPDATED": "Book updated",
+    "BOOKS_GENERATED": "Books generated",
+    "NO_CHANGE_IN_FORM": "No change in form",
+    "BOOK_NOT_FOUND": "Book not found"
+  }
+}

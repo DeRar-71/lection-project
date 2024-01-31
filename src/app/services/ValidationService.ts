@@ -5,25 +5,26 @@ import {AbstractControl, FormGroup} from "@angular/forms";
   providedIn: 'root'
 })
 export class ValidationService {
+
   getFieldErrorMessage(control: AbstractControl | undefined): string {
     if (control?.errors === undefined || control?.errors === null) {
       return '';
     }
 
     if (control.errors['required']) {
-      return 'Field is required';
+      return 'VALIDATION.REQUIRED_FIELD';
     }
 
     if (control.errors['email']) {
-      return 'Email should be valid';
+      return 'VALIDATION.EMAIL_VALID';
     }
 
     if (control.errors['min']) {
-      return `The number cannot be less than ${control.errors['min'].min}`;
+      return `VALIDATION.NUMBER_CANNOT_BE_LESS_${control.errors['min'].min}`;
     }
 
     if (control.errors['pattern']) {
-      return `Invalid data type`;
+      return `VALIDATION.INVALID_TYPE`;
     }
 
     return '';
@@ -35,7 +36,7 @@ export class ValidationService {
     }
 
     if (formGroup.errors['passwordMismatch']) {
-      return 'Password should match';
+      return 'VALIDATION.PASSWORD_MISMATCH';
     }
 
     return '';

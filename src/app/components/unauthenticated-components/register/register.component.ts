@@ -11,6 +11,7 @@ import {ValidationService} from "../../../services/ValidationService";
 import {FormFieldComponent} from "../../common/form-field/form-field.component";
 import {NgIf} from "@angular/common";
 import {NotificationService} from "../../../services/notification/notification.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-register',
@@ -23,7 +24,8 @@ import {NotificationService} from "../../../services/notification/notification.s
     RouterLink,
     ReactiveFormsModule,
     FormFieldComponent,
-    NgIf
+    NgIf,
+    TranslateModule
   ],
   templateUrl: './register.component.html',
   styleUrls: ['../shared-styles.scss', './register.component.scss']
@@ -81,7 +83,7 @@ export class RegisterComponent {
 
     this.authService.register(register).subscribe({
       next: (): void => {
-        this.notifyService.sendSuccessNotify("Successfully registered");
+        this.notifyService.sendSuccessNotify("NOTIFY.SUCCESSFUL_REGISTERED");
         this.router.navigate(['/login']);
       },
       error: (err) => {

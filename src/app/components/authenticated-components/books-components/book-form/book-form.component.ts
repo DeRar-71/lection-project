@@ -6,17 +6,19 @@ import {MatIconModule} from "@angular/material/icon";
 import {GoBackDirective} from "../../../../directives/go-back.directive";
 import {FormFieldComponent} from "../../../common/form-field/form-field.component";
 import {NotificationService} from "../../../../services/notification/notification.service";
+import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'cm-book-form',
   standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        GoBackDirective,
-        FormFieldComponent
-    ],
+  imports: [
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    GoBackDirective,
+    FormFieldComponent,
+    TranslateModule
+  ],
   templateUrl: './book-form.component.html',
   styleUrl: '../../../../../scss/book-form.scss'
 })
@@ -55,7 +57,7 @@ export class BookFormComponent {
     if (this.hasChanges()) {
       this.formEvent.emit();
     } else {
-      this.notifyService.sendFailNotify('No change in form.');
+      this.notifyService.sendFailNotify('NOTIFY.NO_CHANGE_IN_FORM');
     }
   }
 

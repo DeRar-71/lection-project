@@ -1,0 +1,42 @@
+@use '../mixins/typography';
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content{
+  --mat-standard-button-toggle-height: 40px;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-appearance-standard {
+  --mat-standard-button-toggle-text-color: var(--md-sys-color-on-surface);
+  --mat-standard-button-toggle-background-color: transparent;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  --mat-standard-button-toggle-selected-state-text-color: var(--md-sys-color-on-secondary-container);
+  --mat-standard-button-toggle-selected-state-background-color: var(--md-sys-color-secondary-container);
+}
+
+.mat-button-toggle-label-content.mat-button-toggle-label-content {
+  @include typography.label-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mat-button-toggle {
+  flex: 1;
+}
+
+.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay{
+  --mat-standard-button-toggle-hover-state-layer-opacity: 0.08;
+  --mat-standard-button-toggle-focus-state-layer-opacity: 0.1;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked .mat-button-toggle-focus-overlay   {
+  --mat-standard-button-toggle-state-layer-color: var(--md-sys-color-on-secondary-container);
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-focus-overlay {
+  --mat-standard-button-toggle-state-layer-color: var(--md-sys-color-on-surface);
+}
+
+

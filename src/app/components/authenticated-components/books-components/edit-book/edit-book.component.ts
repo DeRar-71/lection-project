@@ -5,13 +5,15 @@ import {Subscription} from "rxjs";
 import {BookService} from "../../../../services/book/book.service";
 import {NotificationService} from "../../../../services/notification/notification.service";
 import {IBookDto} from "../../../../interfaces/IBookDto";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-edit-book',
   standalone: true,
-    imports: [
-        BookFormComponent
-    ],
+  imports: [
+    BookFormComponent,
+    TranslateModule
+  ],
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.scss'
 })
@@ -38,7 +40,7 @@ export class EditBookComponent implements OnInit{
           this.bookName = result.name;
           this.bookAuthor = result.author;
         } else {
-          this.notifyService.sendFailNotify('Book not found');
+          this.notifyService.sendFailNotify('NOTIFY.BOOK_NOT_FOUND');
           this.router.navigate(['books']);
         }
       },
@@ -53,7 +55,7 @@ export class EditBookComponent implements OnInit{
     const bookData: IBookDto = this.getBookData();
     this.bookService.updateBook(this.bookId, bookData).subscribe({
       next: (): void => {
-        this.notifyService.sendSuccessNotify("Books updated");
+        this.notifyService.sendSuccessNotify("NOTIFY.BOOKS_UPDATED");
         this.router.navigate(['/books']);
       },
       error: (err) => {

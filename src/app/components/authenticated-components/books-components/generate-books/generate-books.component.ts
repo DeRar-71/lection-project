@@ -7,6 +7,7 @@ import {GoBackDirective} from "../../../../directives/go-back.directive";
 import {BookService} from "../../../../services/book/book.service";
 import {NotificationService} from "../../../../services/notification/notification.service";
 import {IGenerateBooks} from "../../../../interfaces/IGenerateBooks";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-generate-books',
@@ -15,7 +16,8 @@ import {IGenerateBooks} from "../../../../interfaces/IGenerateBooks";
     FormFieldComponent,
     GoBackDirective,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './generate-books.component.html',
   styleUrl: '../../../../../scss/book-form.scss'
@@ -43,7 +45,7 @@ export class GenerateBooksComponent {
 
       this.bookService.generateBooks(data).subscribe({
         next: () => {
-          this.notifyService.sendFailNotify('Books generated');
+          this.notifyService.sendSuccessNotify('NOTIFY.BOOKS_GENERATED');
           this.router.navigate(['/books']);
         },
         error: (err) => {

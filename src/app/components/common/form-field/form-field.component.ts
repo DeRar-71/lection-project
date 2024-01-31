@@ -3,14 +3,18 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule, FormControl} from "@angular/forms";
 import {ValidationService} from "../../../services/ValidationService";
+import {TranslateModule} from "@ngx-translate/core";
+import {UpperCasePipe} from "@angular/common";
 @Component({
   selector: 'cm-form-field',
   standalone: true,
-    imports: [
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    UpperCasePipe
+  ],
   templateUrl: './form-field.component.html',
   styleUrl: './form-field.component.scss'
 })

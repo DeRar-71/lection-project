@@ -6,6 +6,7 @@ import {AuthorPipe} from "../../../../pipes/author/author.pipe";
 import {IBook} from "../../../../interfaces/IBook";
 import {BookService} from "../../../../services/book/book.service";
 import {NotificationService} from "../../../../services/notification/notification.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-book',
@@ -14,7 +15,8 @@ import {NotificationService} from "../../../../services/notification/notificatio
     MatCardModule,
     AuthorPipe,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
@@ -31,7 +33,7 @@ export class BookComponent {
   public delete(bookId: string) {
     this.bookService.delete(bookId).subscribe({
       next: (): void => {
-        this.notifyService.sendSuccessNotify("The book deleted");
+        this.notifyService.sendSuccessNotify("NOTIFY.THE_BOOK_DELETED");
         this.deleteBookEvent.emit();
       },
       error: (err) => {

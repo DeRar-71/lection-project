@@ -9,6 +9,8 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {ILogin} from "../../../interfaces/auth/ILogin";
 import {FormFieldComponent} from "../../common/form-field/form-field.component";
 import {NotificationService} from "../../../services/notification/notification.service";
+import '@angular/localize/init';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'cm-login',
@@ -21,7 +23,8 @@ import {NotificationService} from "../../../services/notification/notification.s
     MatCardModule,
     RouterLink,
     ReactiveFormsModule,
-    FormFieldComponent
+    FormFieldComponent,
+    TranslateModule
   ],
   templateUrl: './login.component.html',
   styleUrls: ['../shared-styles.scss', './login.component.scss']
@@ -59,7 +62,7 @@ export class LoginComponent {
 
     this.authService.login(loginData).subscribe({
       next: () => {
-        this.notify.sendSuccessNotify('Login successful');
+        this.notify.sendSuccessNotify('NOTIFY.LOGIN_SUCCESSFUL');
         this.router.navigate(['/']);
       },
       error: (err) => {
