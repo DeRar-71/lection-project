@@ -1,16 +1,16 @@
-<form class="auth-form" [formGroup]="loginForm" (ngSubmit)="login()">
+<div class="auth-container">
+  <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="auth-form__title">{{ 'LOGIN' | translate }}</div>
 
-    <div class="auth-form__title">{{ 'LOGIN' | translate }}</div>
-
-    <div class="auth-form__body">
-      <div class="auth-form__inputs">
-        <cm-form-field label="Email" name="email" type="email" controlName="email" [control]="email" class="auth-form__input"></cm-form-field>
-        <cm-form-field label="Password" name="password" type="password" controlName="password" [control]="password" class="auth-form__input"></cm-form-field>
+      <div class="auth-form__body">
+        <div class="auth-form__inputs">
+          <cm-form-field label="Email" name="email" type="email" controlName="email" [control]="email" class="auth-form__input"></cm-form-field>
+          <cm-form-field label="Password" name="password" type="password" controlName="password" [control]="password" class="auth-form__input"></cm-form-field>
+        </div>
+        <div class="auth-form__actions">
+            <button mat-flat-button color="primary" class="auth-form__button" [disabled]="loginForm.invalid">{{ 'LOGIN_BUTTON' | translate }}</button>
+            <span class="auth-form__support">{{ 'DONT_HAVE_ACCOUNT' | translate }} <a routerLink="/register" class="auth-form__link">{{ 'REGISTER' | translate }}</a></span>
+        </div>
       </div>
-      <div class="auth-form__actions">
-          <button mat-flat-button color="primary" class="auth-form__button" [disabled]="loginForm.invalid">{{ 'LOGIN_BUTTON' | translate }}</button>
-          <span class="auth-form__support">{{ 'DONT_HAVE_ACCOUNT' | translate }} <a routerLink="/register" class="auth-form__link">{{ 'REGISTER' | translate }}</a></span>
-      </div>
-    </div>
-
-</form>
+  </form>
+</div>

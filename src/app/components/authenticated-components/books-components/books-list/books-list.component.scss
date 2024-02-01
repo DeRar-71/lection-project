@@ -2,9 +2,11 @@
 
 .books {
   --_grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  --_actions-btn-direction: column;
 
   @include media-breakpoints.tablet {
     --_grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    --_actions-btn-direction: row;
   }
 
   display: flex;
@@ -13,6 +15,7 @@
 
   &__actions {
     display: flex;
+    flex-direction: var(--_actions-btn-direction);
     justify-content: flex-end;
     gap: 8px;
   }

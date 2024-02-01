@@ -1,4 +1,5 @@
 @use 'mixins/typography';
+@use 'mixins/media-breakpoints';
 
 .book-action-section {
   display: flex;
@@ -7,14 +8,21 @@
 }
 
 .book-form {
+  --_padding: 12px;
+
+  @include media-breakpoints.tablet {
+    --_padding: 24px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
-  height: 100%;
+  max-width: 400px;
+  width: 100%;
   background-color: var(--md-sys-color-surface-container-low);
-  padding: 24px;
+  padding: var(--_padding);
   box-sizing: border-box;
   border-radius: 12px;
 
@@ -24,7 +32,6 @@
   }
 
   &__body {
-    min-width: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;

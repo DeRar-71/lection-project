@@ -2,7 +2,7 @@
 
 .grid-container-auth {
   --_template-columns: 1fr;
-  --_template-rows: 120px 1fr 140px 80px;
+  --_template-rows: 120px 1fr 200px 80px;
   --_template-areas: 'header' 'main' 'footer' 'nav';
 
   height: 100dvh;
@@ -25,7 +25,7 @@
 
 .grid-container-not-auth {
   --_template-columns: 1fr;
-  --_template-rows: 120px 1fr 140px;
+  --_template-rows: 120px 1fr 200px;
   --_template-areas: 'header' 'main' 'footer';
 
   height: 100dvh;

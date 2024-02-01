@@ -1,6 +1,13 @@
 @use '../../../../scss/mixins/typography';
+@use '../../../../scss/mixins/media-breakpoints';
 
 .footer-section {
+  --_action-flex-direction: column;
+
+  @include media-breakpoints.tablet {
+    --_action-flex-direction: flex;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,10 +18,12 @@
 
   &__text{
     @include typography.body-large;
+    text-align: center;
   }
 
   &__actions {
     display: flex;
+    flex-direction: var(--_action-flex-direction);
     align-items: center;
     gap: 30px;
   }

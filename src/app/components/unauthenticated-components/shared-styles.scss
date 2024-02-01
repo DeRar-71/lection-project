@@ -1,18 +1,29 @@
 @use '../../../scss/mixins/typography';
+@use '../../../scss/mixins/media-breakpoints';
+
+.auth-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .auth-form {
+  --_padding: 12px;
+
+  @include media-breakpoints.tablet {
+    --_padding: 24px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
-  height: 100%;
   max-width: 400px;
-  min-width: 300px;
   width: 100%;
-  flex: 1 0 0;
   background-color: var(--md-sys-color-surface-container-low);
-  padding: 24px;
+  padding: var(--_padding);
   box-sizing: border-box;
   border-radius: 12px;
 

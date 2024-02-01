@@ -33,7 +33,7 @@
   "ADD_BOOK": "Add book",
   "EDIT_BOOK": "Edit book",
   "AUTHOR": "Author",
-  "BOOK_FAKE_TEXT": "Magic, adventure, mystery—where enchantment leaps off the pages.",
+  "BOOK_FAKE_TEXT": "Magic, adventure, mystery...",
   "NUMBER_OF_BOOKS": "Number of books",
   "GENERATE_BOOKS": "Generate books",
   "LOGOUT": "Logout",

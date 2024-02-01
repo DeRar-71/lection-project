@@ -1,24 +1,26 @@
-<form class="auth-form" [formGroup]="registerForm" (ngSubmit)="register()">
+<div class="auth-container">
+  <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="register()">
 
-  <div class="auth-form__title">{{ 'REGISTRATION' | translate }}</div>
+    <div class="auth-form__title">{{ 'REGISTRATION' | translate }}</div>
 
-  <div class="auth-form__body">
-    <div class="auth-form__inputs">
-      <cm-form-field label="Name" name="name" type="text" controlName="name" [control]="name" class="auth-form__input"></cm-form-field>
-      <cm-form-field label="Email" name="email" type="email" controlName="email" [control]="email" class="auth-form__input"></cm-form-field>
-      <cm-form-field label="Password" name="password" type="password" controlName="password" [control]="password" class="auth-form__input"></cm-form-field>
-      <cm-form-field label="Confirm_password" name="confirm-password" type="password" controlName="confirmPassword" [control]="confirmPassword" class="auth-form__input"></cm-form-field>
-    </div>
-
-    <ng-container *ngIf="getFormErrorMessage() as errorMessage">
-      <div class="auth-form__errors">
-        <mat-error>{{ errorMessage | translate}}</mat-error>
+    <div class="auth-form__body">
+      <div class="auth-form__inputs">
+        <cm-form-field label="Name" name="name" type="text" controlName="name" [control]="name" class="auth-form__input"></cm-form-field>
+        <cm-form-field label="Email" name="email" type="email" controlName="email" [control]="email" class="auth-form__input"></cm-form-field>
+        <cm-form-field label="Password" name="password" type="password" controlName="password" [control]="password" class="auth-form__input"></cm-form-field>
+        <cm-form-field label="Confirm_password" name="confirm-password" type="password" controlName="confirmPassword" [control]="confirmPassword" class="auth-form__input"></cm-form-field>
       </div>
-    </ng-container>
 
-    <div class="auth-form__actions">
-      <button mat-flat-button color="primary" class="auth-form__button" [disabled]="registerForm.invalid">{{ 'REGISTER_BUTTON' | translate}}</button>
-      <span class="auth-form__support">{{ 'ALREADY_ACCOUNT' | translate}} <a routerLink="/login" class="auth-form__link">{{ 'LOGIN' | translate }}</a></span>
+      <ng-container *ngIf="getFormErrorMessage() as errorMessage">
+        <div class="auth-form__errors">
+          <mat-error>{{ errorMessage | translate}}</mat-error>
+        </div>
+      </ng-container>
+
+      <div class="auth-form__actions">
+        <button mat-flat-button color="primary" class="auth-form__button" [disabled]="registerForm.invalid">{{ 'REGISTER_BUTTON' | translate}}</button>
+        <span class="auth-form__support">{{ 'ALREADY_ACCOUNT' | translate}} <a routerLink="/login" class="auth-form__link">{{ 'LOGIN' | translate }}</a></span>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
