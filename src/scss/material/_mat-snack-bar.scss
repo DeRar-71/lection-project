@@ -1,7 +1,9 @@
-.mat-mdc-snack-bar-container {
-  &.blue-snackbar {
-    --mdc-snackbar-container-color: #2196f3;
-    --mat-mdc-snack-bar-button-color: #fff;
-    --mdc-snackbar-supporting-text-color: #fff;
-  }
+.mat-mdc-snack-bar-container.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  --mdc-snackbar-container-color: red;
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}
+
+.mat-mdc-snack-bar-container.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+  --mat-snack-bar-button-color: var(--md-sys-color-inverse-primary);
 }

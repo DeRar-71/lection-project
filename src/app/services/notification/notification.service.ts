@@ -35,12 +35,11 @@ export class NotificationService {
 
   private openSnackBar(message: string, panelClass: string) {
     this.translate.get('BUTTONS.CLOSE').subscribe( (text: string) => {
-      console.log(text)
       this.actionText = text;
     });
 
     this._snackBar.open(message, this.actionText, {
-      duration: 3000,
+      duration: 30000000000000,
       panelClass: [panelClass],
     });
   }
