@@ -39,7 +39,7 @@ export class NotificationService {
     });
 
     this._snackBar.open(message, this.actionText, {
-      duration: 30000000000000,
+      duration: 3000,
       panelClass: [panelClass],
     });
   }

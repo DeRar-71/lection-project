@@ -1,9 +1,21 @@
-.mat-mdc-snack-bar-container.mat-mdc-snack-bar-container .mdc-snackbar__surface {
-  --mdc-snackbar-container-color: red;
-  --mat-mdc-snack-bar-button-color: #fff;
-  --mdc-snackbar-supporting-text-color: #fff;
+@use '../mixins/typography';
+
+.mat-mdc-snack-bar-container.mat-mdc-snack-bar-container  {
+
+  & .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+    --mat-snack-bar-button-color: var(--md-sys-color-inverse-primary);
+  }
+
+  & .mdc-snackbar__surface {
+    --mdc-snackbar-container-color: var(--md-sys-color-inverse-surface);
+  }
+
+  & .mdc-snackbar__label {
+    @include typography.body-medium;
+    color: var(--md-sys-color-inverse-on-surface);
+  }
 }
 
-.mat-mdc-snack-bar-container.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
-  --mat-snack-bar-button-color: var(--md-sys-color-inverse-primary);
+.mdc-button.mdc-button .mdc-button__label {
+    @include typography.label-large;
 }
