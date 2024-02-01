@@ -1,0 +1,18 @@
+.mat-mdc-mini-fab.mat-mdc-mini-fab.mat-accent {
+  --_ripple-opacity: 0.1;
+
+  --mdc-fab-container-color: var(--md-sys-color-primary-container);
+  --mdc-fab-container-shape: 12px;
+  --mat-icon-color: var(--md-sys-color-on-primary-container);
+  --mat-fab-ripple-color: var(--md-sys-color-on-primary-container);
+
+  & .mat-mdc-button-ripple{
+    opacity: var(--_ripple-opacity);
+  }
+}
+
+.mat-mdc-mini-fab.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before {
+  --mat-fab-state-layer-color: var(--md-sys-color-on-primary-container);
+  --mat-fab-hover-state-layer-opacity: 0.08;
+  --mat-fab-focus-state-layer-opacity: 0.1;
+}
